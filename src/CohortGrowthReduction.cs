@@ -1,7 +1,6 @@
 using Edu.Wisc.Forest.Flel.Util;
 using Landis.SpatialModeling;
 
-
 namespace Landis.Library.LeafBiomassCohorts
 {
     public class CohortGrowthReduction

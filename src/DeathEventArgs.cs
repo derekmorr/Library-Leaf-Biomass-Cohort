@@ -1,5 +1,3 @@
-
-
 using Landis.Core;
 using Landis.SpatialModeling;
 

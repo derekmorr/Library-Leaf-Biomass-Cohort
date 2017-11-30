@@ -18,10 +18,6 @@ namespace Landis.Library.LeafBiomassCohorts
         /// Reflects the cohort's contribution to the growing space available
         /// next year.
         /// </remarks>
-        /*int MortalityWithoutLeafLitter
-        {
-            get;
-        }*/
 
         //---------------------------------------------------------------------
 
@@ -42,8 +38,6 @@ namespace Landis.Library.LeafBiomassCohorts
         /// The total mortality at the site during the previous year.
         /// </param>
         float[] ComputeChange(ICohort cohort, ActiveSite site);
-                          //float       siteBiomass,
-                          //int        prevYearSiteMortality);
 
         //---------------------------------------------------------------------
 

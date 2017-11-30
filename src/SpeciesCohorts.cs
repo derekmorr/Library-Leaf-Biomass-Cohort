@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -234,10 +233,6 @@ namespace Landis.Library.LeafBiomassCohorts
             Debug.Assert(cohort.WoodBiomass <= cohort.WoodBiomass + cohort.LeafBiomass);
             Debug.Assert(cohort.LeafBiomass <= cohort.WoodBiomass + cohort.LeafBiomass);
 
-            //if (isDebugEnabled)
-            //    log.DebugFormat("  grow cohort: {0}, {1} yrs, {2} Mg/ha",
-            //                    cohort.Species.Name, cohort.Age, cohort.Biomass);
-
             //  Check for senescence
             if (cohort.Age >= species.Longevity) {
                 RemoveCohort(index, cohort, site, null);
@@ -251,16 +246,9 @@ namespace Landis.Library.LeafBiomassCohorts
 
             Debug.Assert(-(cohort.WoodBiomass + cohort.LeafBiomass) <= biomassChange[0] + biomassChange[1]);  // Cohort can't loss more biomass than it has
 
-            //UI.WriteLine("B={0:0.00}, Age={1}, delta={2}", cohort.Biomass, cohort.Age, biomassChange);
-
 
             cohort.ChangeWoodBiomass(biomassChange[0]);
             cohort.ChangeLeafBiomass(biomassChange[1]);
-
-            //if (isDebugEnabled)
-            //    log.DebugFormat("    biomass: change = {0}, cohort = {1}, site = {2}",
-            //                    biomassChange, cohort.Biomass, siteBiomass);
-
 
             if (cohort.WoodBiomass + cohort.LeafBiomass > 0) {
                 cohortData[index] = cohort.Data;
@@ -279,18 +267,6 @@ namespace Landis.Library.LeafBiomassCohorts
                                   ActiveSite site,
                                   ExtensionType disturbanceType)
         {
-            /*if (isDebugEnabled)
-                log.DebugFormat("  cohort removed: {0}, {1} yrs, {2} Mg/ha ({3})",
-                                cohort.Species.Name, cohort.Age, cohort.Biomass,
-                                disturbanceType != null
-                                    ? disturbanceType.Name
-                                    : cohort.Age >= species.Longevity
-                                        ? "senescence"
-                                        : cohort.Biomass == 0
-                                            ? "attrition"
-                                            : "UNKNOWN");
-
-            */
             cohortData.RemoveAt(index);
             Cohort.Died(this, cohort, site, disturbanceType);
         }
@@ -349,7 +325,6 @@ namespace Landis.Library.LeafBiomassCohorts
                 {
                     if (totalReduction < cohort.Biomass)
                     {
-                        //Console.WriteLine("  DamageBySpecies Partial mortality: {0}, {1} yrs, {2} Mg/ha", cohort.Species.Name, cohort.Age, cohort.Biomass);
                         ReduceCohort(i, cohort, disturbance.CurrentSite, disturbance.Type, fRed); //RMS 12/2016
                         if (reduction[1] < cohort.LeafBiomass)
                         {
@@ -364,7 +339,6 @@ namespace Landis.Library.LeafBiomassCohorts
                     }
                     else
                     {  // Assume that if all wood biomass lost, the cohort is dead
-                        //Console.WriteLine("  DamageBySpecies Total mortality: {0}, {1} yrs, {2} Mg/ha", cohort.Species.Name, cohort.Age, cohort.Biomass);
                         RemoveCohort(i, cohort, disturbance.CurrentSite,
                                      disturbance.Type);
                         cohort = null;
@@ -413,10 +387,6 @@ namespace Landis.Library.LeafBiomassCohorts
                     Cohort cohort = new Cohort(species, cohortData[i]);
                     totalReduction += (int) (cohort.WoodBiomass + cohort.LeafBiomass);
 
-                    //Cohort.KilledByAgeOnlyDisturbance(disturbance, cohort,
-                    //    disturbance.CurrentSite,
-                    //    disturbance.Type);
-                    
                     Landis.Library.BiomassCohorts.Cohort.KilledByAgeOnlyDisturbance(disturbance, cohort, disturbance.CurrentSite, disturbance.Type);
                     
                     RemoveCohort(i, cohort, disturbance.CurrentSite,
@@ -448,7 +418,6 @@ namespace Landis.Library.LeafBiomassCohorts
                     {
 
                         float fRed = (float)reduction / (float)cohort.Biomass;
-                        //Console.WriteLine("  MarkCohorts Partial mortality: {0}, {1} yrs, {2} Mg/ha", cohort.Species.Name, cohort.Age, cohort.Biomass);
                         ReduceCohort(i, cohort, disturbance.CurrentSite, disturbance.Type, fRed);  //RMS 12/2016
                         
                         float deltaWood = (-1) * fRed * (float)cohort.Data.WoodBiomass;
@@ -461,7 +430,6 @@ namespace Landis.Library.LeafBiomassCohorts
                     }
                     else
                     {
-                        //Console.WriteLine("  MarkCohorts Total mortality: {0}, {1} yrs, {2} Mg/ha", cohort.Species.Name, cohort.Age, cohort.Biomass);
                         RemoveCohort(i, cohort, disturbance.CurrentSite, disturbance.Type);
                         cohort = null;
                     }

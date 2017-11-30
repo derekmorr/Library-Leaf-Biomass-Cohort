@@ -1,4 +1,3 @@
-
 using Landis.Core;
 using Landis.SpatialModeling;
 
@@ -9,28 +8,6 @@ namespace Landis.Library.LeafBiomassCohorts
     /// </summary>
     public interface IDisturbance : Landis.Library.BiomassCohorts.IDisturbance
     {
-        /// <summary>
-        /// The disturbance's type.
-        /// </summary>
-        /*
-        ExtensionType Type
-        {
-            get;
-        }
-        */
-        //---------------------------------------------------------------------
-
-        /// <summary>
-        /// The current site that the disturbance is damaging.
-        /// </summary>
-        /*
-        ActiveSite CurrentSite
-        {
-            get;
-        }
-        */
-        //---------------------------------------------------------------------
-
         /// <summary>
         /// Computes how a cohort is damaged by the disturbance.
         /// </summary>

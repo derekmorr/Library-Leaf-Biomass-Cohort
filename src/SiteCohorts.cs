@@ -87,9 +87,7 @@ namespace Landis.Library.LeafBiomassCohorts
                 totalReduction += cohorts[i].MarkCohorts(disturbance);
                 if (cohorts[i].Count == 0)
                     cohorts.RemoveAt(i);
-            }
-            //totalBiomass -= totalReduction;
-             
+            }             
         }
         public  SpeciesCohorts GetCohorts(ISpecies species)
         {
@@ -280,10 +278,6 @@ namespace Landis.Library.LeafBiomassCohorts
                                  float initialWoodBiomass,
                                  float initialLeafBiomass)
         {
-            //if (isDebugEnabled)
-            //    log.DebugFormat("  add cohort: {0}, initial biomass = {1}; site biomass = {2}",
-            //                    species.Name, initialBiomass, totalBiomass);
-
             bool speciesPresent = false;
             for (int i = 0; i < cohorts.Count; i++) {
                 SpeciesCohorts speciesCohorts = cohorts[i];

@@ -1,4 +1,3 @@
-
 namespace Landis.Library.LeafBiomassCohorts
 {
     /// <summary>

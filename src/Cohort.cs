@@ -4,7 +4,6 @@
 
 using Landis.Core;
 using Landis.SpatialModeling;
-using System;
 
 namespace Landis.Library.LeafBiomassCohorts
 {

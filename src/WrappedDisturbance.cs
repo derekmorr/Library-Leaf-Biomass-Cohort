@@ -1,4 +1,3 @@
-
 using Landis.Core;
 using Landis.SpatialModeling;
 using Landis.Library.AgeOnlyCohorts;
