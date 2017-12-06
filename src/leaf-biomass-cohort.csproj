@@ -2,17 +2,17 @@
   <PropertyGroup>
     <RootNamespace>leaf_biomass_cohort</RootNamespace>
     <AssemblyName>Landis.Library.LeafBiomassCohorts-v1.0.1</AssemblyName>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Edu.Wisc.Forest.Flel.Util">
       <HintPath>..\lib\Edu.Wisc.Forest.Flel.Util.dll</HintPath>
     </Reference>
-    <ProjectReference Include="../../landis-core-model/model/core/src/Core.csproj" />
-    <ProjectReference Include="../../Library-Age-Cohort/src/age cohort.csproj" />
-    <ProjectReference Include="../../Library-Biomass-Cohort/src/biomass-cohort.csproj" />
-    <ProjectReference Include="../../Library-Base-Cohort/src/base-cohort.csproj" />
-    <ProjectReference Include="../../Library-Spatial/src/api/Landis_SpatialModeling.csproj" />
+    <PackageReference Include="Landis.Core" Version="1.0.0-CI00001" />
+    <PackageReference Include="Landis.Library.AgeOnlyCohorts" Version="1.0.0-CI00001" />
+    <PackageReference Include="Landis.Library.BiomassCohorts-v2" Version="1.0.0-CI00006" />
+    <PackageReference Include="Landis.Library.Cohorts" Version="1.0.0-CI00001" />
+    <PackageReference Include="Landis.SpatialModeling" Version="1.0.0-CI00001" />
     <PackageReference Include="log4net" Version="2.0.8" />
   </ItemGroup>
 </Project>
